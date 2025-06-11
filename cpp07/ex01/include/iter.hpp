@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 11:09:40 by joaosilva         #+#    #+#             */
+/*   Updated: 2025/06/02 12:08:36 by joaosilva        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ITER_HPP
+#define ITER_HPP
+
+// iter: Applies the function f to each element of the array.
+template <typename T>
+void iter(T* array, int length, void (*f)(T const &))
+{
+    for (int i = 0; i < length; ++i)
+        f(array[i]);
+}
+
+#endif
