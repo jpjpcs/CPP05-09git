@@ -6,19 +6,19 @@
 #    By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/20 12:55:30 by joaosilva         #+#    #+#              #
-#    Updated: 2025/06/11 12:49:24 by joaosilva        ###   ########.fr        #
+#    Updated: 2025/06/11 12:57:23 by joaosilva        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######################  Variables ######################
-NAME = btc
+NAME = RPN
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -std=c++98 # -pthread -g -fsanitize=thread #-fsanitize=address
 INCLUDE = -I include/
 
 ############  Source files - Sources to objects ###########
-SRC_FILES = main.cpp BitcoinExchange.cpp
+SRC_FILES = main.cpp RPN.cpp
 SRC_DIR = src/
 SRC = ${addprefix ${SRC_DIR}, ${SRC_FILES}}
 
@@ -27,7 +27,7 @@ OBJ_DIR = objects/
 OBJS = ${addprefix ${OBJ_DIR}, ${SRC_FILES:.cpp=.o}}
 
 ############ Header files same folder ###########
-HEADER_FILES = BitcoinExchange.hpp
+HEADER_FILES = RPN.hpp
 HEADER_DIR = include/
 HEADER = ${addprefix ${HEADER_DIR}, ${HEADER_FILES}}
 
