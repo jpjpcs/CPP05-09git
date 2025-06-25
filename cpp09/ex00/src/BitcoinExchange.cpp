@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:44:33 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/12 12:07:59 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/06/23 10:49:00 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ float BitcoinExchange::getRate(const std::string& date) const
     if (it == _rates.begin()) // If the iterator is at the beginning of the map, it means there are no rates available for any date before the given date.
         throw std::runtime_error("Error: no rate available for this date.");
     --it; // Move the iterator back to the previous element, which will be the closest previous date.
-    return it->second; // Return the exchange rate for the closest previous date.
+    return it->second; // Return the exchange rate for the closest previous date. 
 }
 
 bool BitcoinExchange::isValidDate(const std::string& date) const 
