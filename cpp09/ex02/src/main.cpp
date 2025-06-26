@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:43:42 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/25 19:57:31 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/06/26 16:37:42 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@
 #include <ctime>
 #include <iomanip>
 
-int main(int argc, char** argv) {
-    if (argc < 2) {
+int main(int argc, char** argv) 
+{
+    if (argc < 2) 
+    {
         std::cerr << "Error" << std::endl;
         return 1;
     }
     std::vector<int> v;
     std::deque<int> d;
-    if (!PmergeMe::parseInput(argc, argv, v, d)) {
+    if (!PmergeMe::parseInput(argc, argv, v, d)) 
+    {
         std::cerr << "Error" << std::endl;
         return 1;
     }
