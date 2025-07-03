@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:52:05 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:05:48 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/01 10:35:42 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,8 +187,8 @@ int main()
     uintptr_t raw = Serializer::serialize(&data);
     std::cout << "     Serialized Data to raw address: " << raw << std::endl;
     std::cout << "     Serialized Data to raw address (hex): 0x" << std::hex << raw << std::dec << std::endl;
+    
     Data* ptr = Serializer::deserialize(raw);
-
     std::cout << "     Original Data address: " << &data << std::endl;
     std::cout << "     Deserialized Data address: " << ptr << std::endl;
     if (ptr == &data)
@@ -225,24 +225,24 @@ int main()
     std::cout << "     text: " << data.text << std::endl;
     std::cout << "     value: " << data.value << std::endl;
     
-    std::cout << "--- Fake Deserialized Data content (may be garbage):" << std::endl;   
+/*     std::cout << "--- Fake Deserialized Data content (may be garbage):" << std::endl;   
     std::cout << "     number: " << fake_ptr->number << std::endl;
     std::cout << "     text: " << fake_ptr->text << std::endl;
     std::cout << "     value: " << fake_ptr->value << std::endl;
-    std::cout << "---- End of test 2 ----" << std::endl;
+    std::cout << "---- End of test 2 ----" << std::endl; */
     
     
     
     std::cout << "\n---- Test 3: Null Pointer Serialization" << std::endl;
-    uintptr_t null_raw = Serializer::serialize(nullptr);
+    uintptr_t null_raw = Serializer::serialize(NULL);
     Data* null_ptr = Serializer::deserialize(null_raw);
     std::cout << "     Null pointer serialized to: " << null_raw << std::endl;
-    if (null_ptr == nullptr)
+    if (null_ptr == NULL)
         std::cout << "     Success: Deserialized null pointer is indeed null!" << std::endl;
     else
         std::cout << "     Error: Deserialized null pointer is not null!" << std::endl;
     
-    if (fake_ptr == nullptr)
+    if (fake_ptr == NULL)
         std::cout << "     Fake pointer is null, as expected." << std::endl;
     else
         std::cout << "     Fake pointer is not null, unexpected behavior!" << std::endl;

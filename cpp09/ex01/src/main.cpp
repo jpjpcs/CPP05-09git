@@ -13,6 +13,12 @@
 #include "RPN.hpp"
 #include <iostream>
 
+/* ****************************
+STACK IS USED IN THIS EXERCISE due 2 reasons:
+1. RPN (Reverse Polish Notation) was created to use a stack.
+2. Stack us usefull to make pull and push operations.
+****************************** */
+
 int main(int argc, char** argv) 
 {
     

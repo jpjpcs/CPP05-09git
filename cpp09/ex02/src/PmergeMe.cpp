@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:44:33 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:18:18 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 21:34:02 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -612,7 +612,10 @@ void PmergeMe::sortDeque(std::deque<int>& d) {
     if (d.size() <= 1) return;
     
     // Use insertion sort for small arrays
-    if (d.size() <= 10) 
+    if (d.size() <= 10) if (token == "+") stack.push(a + b); // push the result of the operation back onto the stack.
+            else if (token == "-") stack.push(a - b);
+            else if (token == "*") stack.push(a * b);
+            else if (token == "/") 
     {
         for (size_t i = 1; i < d.size(); ++i) 
         {
@@ -686,6 +689,7 @@ bool PmergeMe::parseInput(int argc, char** argv, std::vector<int>& v, std::deque
     - ./PmergeMe 3 
     - ./PmergeMe 10 6                                                                  
     - ./PmergeMe `jot -r 3000 1 100000 | tr "\n" " "`
+    - ./PmergeMe`shuf -i 1-100000 -n 3000 | tr "\n" " "`
 
 7 - Implementation is in accordance with the subject and evaluation sheet for Module 09, Exercise 02 (PmergeMe). Here’s how you can evidence and explain this to your evaluator:
     7.1. Use of Two Different Containers
@@ -806,7 +810,8 @@ static std::vector<int> generateInsertionOrder(int n)
 
     for (size_t i = 2; i < jacobsthal.size() && jacobsthal[i-1] < n; ++i) 
     {
-        int groupStart = jacobsthal[i-1] + 1;
+        int groupStart = jacobsthal[i-1] + 1; // This is the starting index for the current group of minors to be inserted.
+        // ... For example, if jacobsthal[i-1] is 1, then groupStart will be 2.
         int groupEnd = std::min(jacobsthal[i], n);
         
         // Insert group in DESCENDING order

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+         #
+#    By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 12:55:30 by joaosilva         #+#    #+#              #
-#    Updated: 2025/06/27 11:18:25 by joaosilva        ###   ########.fr        #
+#    Updated: 2025/07/02 14:56:01 by jode-jes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,6 @@ clean:
 # Rule to remove the executable, object files, and obj/ directory
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) *_shrubbery
 	@echo "$(RED)Executable $(NAME) removed$(DEF_COLOR)"
 
 # Rule to remove all generated files and recompile everything

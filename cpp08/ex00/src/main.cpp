@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:51:32 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:12:48 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 23:07:07 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,52 @@ typename T::iterator easyfind(T& container, int value) and then use std::vector<
     Summary:
         - Use iterator for non-const containers when you might modify elements.
         - Use const_iterator for const containers or when you only need to read.
+5 - Associative containers are containers that organize elements in an associative form (based on keys) such as std::map and std::set.
+    Main Associative Containers in C++:
+
+    Main types:
+    - std::map - ordered key-value map
+    - std::multimap - map that allows duplicate keys
+    - std::set - ordered set of unique elements
+    - std::multiset - set that allows duplicate elements
+
+    C++11 also includes:
+    - std::unordered_map - hash map
+    - std::unordered_set - hash set
+    - std::unordered_multimap
+    - std::unordered_multiset
+
+    Difference from Sequential Containers:
+
+    Sequential containers (you need to implement)
+    std::vector<int> vec;
+    std::list<int> lst;
+    std::deque<int> deq;
+
+    Associative containers (you DON'T need to implement)
+    std::map<int, string> map;
+    std::set<int> set;
+
+    What the phrase means:
+
+    "You don't have to handle associative containers" = You don't need to implement support for map, set, multimap, multiset, etc.
+
+    You only need to focus on sequential containers like vector, list, deque, stack, queue.
+
+    Summary:
+
+    - Implement: vector, list, deque, array
+    - DON'T implement: map, set, unordered_map, unordered_set
+
+    This simplifies the exercise, focusing only on sequential containers!
+
 */
 
 int main()
 {
     // Testing with a vector
     std::cout << std::endl;
-    std::cout << "Testing with a vector:" << std::endl;
+    std::cout << "Test 1: Testing with a vector:" << std::endl;
     std::vector<int> v; 
     for (int i = 0; i <= 5; ++i)
         v.push_back(i * 2);
@@ -129,7 +168,7 @@ int main()
 
     // Testing with a list
     std::cout << std::endl;
-    std::cout << "Testing with a list:" << std::endl;
+    std::cout << "Test 2: Testing with a list:" << std::endl;
     std::list<int> l;
     for (int i = 10; i < 20; ++i)
         l.push_back(i);

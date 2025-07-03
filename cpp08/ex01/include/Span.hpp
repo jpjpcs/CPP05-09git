@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:53:25 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:13:29 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 22:58:49 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <vector>
-#include <stdexcept>
-#include <algorithm>
+#include <vector> // for std::vector
+#include <stdexcept> // for std::runtime_error
+#include <algorithm> // for std::sort, std::min_element, std::max_element
 
 /*
 1 - How if (_numbers.size() + std::distance(begin, end) > _max) works?

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:44:33 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:16:09 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 20:58:00 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void BitcoinExchange::loadDatabase(const std::string& dbFile)
             // atof means "ASCII to float", and it is a standard C library function that converts a string to a floating-point number.
             // The `valueStr.c_str()` converts the `valueStr` string to a C-style string (const char*), which is required by `atof`.
             _rates[date] = value; // Store the date and corresponding value in the `_rates` map, my choosen container.
+            isValidDate(date);
         }
     }
 }
@@ -66,19 +67,36 @@ float BitcoinExchange::getRate(const std::string& date) const
     return it->second; // Return the exchange rate for the closest previous date. 
 }
 
-bool BitcoinExchange::isValidDate(const std::string& date) const 
+/* bool BitcoinExchange::isValidDate(const std::string& date) const 
 {
     // Simple YYYY-MM-DD validation
     if (date.size() != 10 || date[4] != '-' || date[7] != '-') // !10 because we expect the format YYYY-MM-DD and !10 means the string is not exactly 10 characters long and the string must be exactly 10 characters long to match the format (YYYY-MM-DD) and num. 4 and 7 must be '-' characters.
         return false;
     // Further checks omitted for brevity
     return true;
+} */
+
+void BitcoinExchange::isValidDate(const std::string& date)
+{
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+		throw std::runtime_error("bad input -> " + date);
+    int year = std::atoi(date.substr(0, 4).c_str());
+    int month = std::atoi(date.substr(5, 2).c_str());
+    int day = std::atoi(date.substr(8, 2).c_str());
+    if (year < 2009 || year > 2025 || month < 1 || month > 12 || day < 1)
+        throw std::runtime_error("bad input -> " + date);
+    int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (month == 2 && (year % 4 == 0))
+        daysInMonth[1] = 29;
+    if (day > daysInMonth[month - 1])
+		throw std::runtime_error("bad input -> " + date);;
 }
 
-bool BitcoinExchange::isValidValue(const std::string& valueStr, float& value) {
+bool BitcoinExchange::isValidValue(const std::string& valueStr, float& value) 
+{
     char* end;
     value = std::strtof(valueStr.c_str(), &end); // Convert string to float
-    // Why? To check if the string represents a valid floating-point number.
+    // Why? T: bad input => " << date <o check if the string represents a valid floating-point number.
     // How? By using `strtof`, which converts a string to a float and provides a pointer to the end of the parsed string.
     // Where? In the BitcoinExchange class, where we need to validate user input before processing it.
     if (*end != '\0' || value < 0 || value > 1000)

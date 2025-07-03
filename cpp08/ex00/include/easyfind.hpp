@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:51:20 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:12:42 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 22:25:19 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ What is the purpose of the easyfind function and this exercise?
         - Accepts the container by reference (no copy).
         - Follows STL conventions (like std::find).
         - Allows modifying the found element.
-    
     Option B:
         - Returns an integer (not an iterator)(probably index or -1)..
         - Accepts the container by value (creates a copy, inefficient).
@@ -129,29 +128,74 @@ What should we use:
         - If not found, it returns container.end().
 10 - What means "Follows STL conventions (like std::find)"?
     "Follows STL conventions (like std::find)" means:
-
     - Your function behaves in the same way as standard STL (Standard Template Library) functions, such as std::find.
     - Specifically:
         . It takes iterators or containers as parameters.
         . It returns an iterator to the found element, or end() if not found.
         . It does not return an index or a boolean, but an iterator (which is the standard way in STL).
-        .   It allows the user to use the result in the same way as other STL algorithms.
+        . It allows the user to use the result in the same way as other STL algorithms.
     Example:
         std::find returns an iterator, not an index.
-        Your easyfind does the same, so it "follows STL conventions."
+        My easyfind function does the same, so it "follows STL conventions."
 11 - Can I use both (const and non-const)? Is it asked in the subject and is it right?
     Yes, you can use both const and non-const versions of the easyfind function.
     The subject does not explicitly ask for both, but it is a good practice to provide 
     both versions to allow searching in both mutable and immutable containers.
     It is right to implement both versions, as it increases the flexibility of the function.
     The const version allows searching in const containers, while the non-const version allows modifying the container.
+12 - What does template <typename T> mean?
+    template <typename T> means you are creating a template that can work with any data type.
+    
+    What it means:
+    - "template": Keyword indicating "this is a template"
+    - "<typename T>": Defines a type parameter called T
+    - "T": Is a placeholder for any type
+    
+    How it works:
+    Everything that comes AFTER template <typename T> can use T as if it were a real type:
+    
+    template <typename T>
+    void myFunction(T value) {
+        T anotherVariable = value;
+        // T can be int, string, double, etc.
+    }
+    
+    Practical examples:
+    
+    Function template:
+    template <typename T>
+    T maximum(T a, T b) {
+        return (a > b) ? a : b;
+    }
+    
+    Usage:
+    int result1 = maximum(5, 10);        // T = int
+    double result2 = maximum(3.14, 2.71); // T = double
+    
+    Class template:
+    template <typename T>
+    class MyClass {
+    private:
+        T value;
+    public:
+        MyClass(T v) : value(v) {}
+        T getValue() { return value; }
+    };
+    
+    Usage:
+    MyClass<int> obj1(42);        // T = int
+    MyClass<string> obj2("hello"); // T = string
+    
+    Summary:
+    template <typename T> = "Create a template that works with any type T"
+    The compiler generates specific code for each type used!
 */
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-#include <algorithm>
-#include <stdexcept>
+#include <algorithm> // used for std::find
+#include <stdexcept> // used for std::runtime_error
 
 template <typename T>
 typename T::iterator easyfind(T& container, int value)

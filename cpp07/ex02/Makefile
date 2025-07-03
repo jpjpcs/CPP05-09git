@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+         #
+#    By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/17 12:55:30 by joaosilva         #+#    #+#              #
-#    Updated: 2025/06/27 11:11:33 by joaosilva        ###   ########.fr        #
+#    Updated: 2025/07/02 12:36:07 by jode-jes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ_DIR = objects/
 OBJS = ${addprefix ${OBJ_DIR}, ${SRC_FILES:.cpp=.o}}
 
 ############ Header files same folder ###########
-HEADER_FILES = array.hpp
+HEADER_FILES = Array.hpp
 HEADER_DIR = include/
 HEADER = ${addprefix ${HEADER_DIR}, ${HEADER_FILES}}
 
@@ -56,7 +56,6 @@ clean:
 # Rule to remove the executable, object files, and obj/ directory
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) *_shrubbery
 	@echo "$(RED)Executable $(NAME) removed$(DEF_COLOR)"
 
 # Rule to remove all generated files and recompile everything

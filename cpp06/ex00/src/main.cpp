@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:10:30 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:04:46 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/01 10:43:55 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static_cast<float>, and static_cast<double> to convert the literals to their cor
         double supports special values like nan and inf; int does not.
 */
 
-/* int main() 
+/*  int main() 
 {
     const char* tests[] = 
     {

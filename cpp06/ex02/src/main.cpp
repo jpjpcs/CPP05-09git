@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 11:32:03 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:07:36 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/06/30 15:24:08 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Identify.hpp"
 #include <iostream>
+#include <cstdlib> // for std::srand, std::rand
+#include <ctime>   // for std::time
 
 /*
 Here’s a comprehensive summary and explanation of all the key concepts, 

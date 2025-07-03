@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:44:53 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:15:59 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 20:19:55 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class BitcoinExchange
     public:
         BitcoinExchange(const std::string& dbFile);
         float getRate(const std::string& date) const;
-        bool isValidDate(const std::string& date) const;
+        void isValidDate(const std::string& date);
         static bool isValidValue(const std::string& valueStr, float& value);
 
     private:

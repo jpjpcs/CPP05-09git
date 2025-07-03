@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 12:43:42 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:16:14 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 20:47:28 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 #include <fstream>
 #include <sstream>
 #include <cctype>
+#include <cstdlib>
 
 static std::string trim(const std::string& s) 
 {
@@ -92,6 +93,7 @@ int main(int argc, char** argv)
         // Now we can process the rest of the file line by line.
         while (getline(input, line)) // Read each line from the input file until the end of the file is reached.
         {
+   
             // Check if line contains '|'
             size_t pipe = line.find('|');
             if (pipe == std::string::npos) // npos means "not found", so if we can't find the pipe character, it means the line is not formatted correctly.
@@ -100,7 +102,8 @@ int main(int argc, char** argv)
                 std::cout << "Error: bad input => " << line << std::endl;
                 continue;
             }
-            std::string date = trim(line.substr(0, pipe)); // Extract the date part of the line up to the pipe character and trim whitespace.
+            std::string date = trim(line.substr(0, 10)); // Extract the date part of the line up to the pipe character and trim whitespace.
+            btc.isValidDate(date);
             // Why? Because the date is the first part of the line, and we need to validate it before processing the value.
             // How? By using `line.substr(0, pipe)` to get the substring from the start of the line up to the pipe character,
             // and then using the `trim` function to remove any leading or trailing whitespace from the date string.
@@ -111,14 +114,6 @@ int main(int argc, char** argv)
             // How? By using `line.substr(pipe + 1)` to get the substring from the character after the pipe to the end of the line, 
             // and then using the `trim` function to remove any leading or trailing whitespace from the value string.
             // The `trim` function is defined above and removes spaces and tabs from both ends of the string.
-
-            // Validate date
-            if (!btc.isValidDate(date)) // Check if the date is valid using the BitcoinExchange method.
-            {
-                std::cout << "Error: bad input => " << date << std::endl;
-                continue;
-            }
-            // Validate value: check if it's a number
             if (!isNumber(valueStr)) // Check if the value string represents a valid number.
             {
                 std::cout << "Error: bad input => " << line << std::endl;

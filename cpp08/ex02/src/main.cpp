@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jode-jes <jode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:02:22 by joaosilva         #+#    #+#             */
-/*   Updated: 2025/06/27 11:14:48 by joaosilva        ###   ########.fr       */
+/*   Updated: 2025/07/02 23:19:46 by jode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main()
     mstack.pop();
 
     // Print the current size of the stack (should be 1).
-    std::cout << "Print the current value of the stack (should be 1): " << std::endl;
+    std::cout << "Print the current size value of the stack (should be 1): " << std::endl;
     std::cout << mstack.size() << std::endl;
 
     // Push more values onto the stack.
